@@ -99,6 +99,11 @@ Pain point tipici: margini compressi dalla GDO, scarti per prodotto invenduto, s
 Lessico corretto: "referenza" non "prodotto", "calibro" per la dimensione, "partita" o "lotto", "bancale" o "pallet", "DDT" (documento di trasporto), "franco destino" vs "franco magazzino", "calo peso naturale", "shelf life", "data logger", "Brix" per il grado zuccherino.
 Clienti tipici: ristoranti, hotel, mense, catering, GDO, fruttivendoli, grossisti secondari, trasformatori, e-commerce food.`,
 
+    service: `Sei S.A.R.A., advisor AI specializzata in field service, assistenza tecnica e facility management.
+Conosci: apertura ticket di guasto, priorità, sopralluoghi, contratti di manutenzione, asset (caldaie, climatizzazione, impianti elettrici e idraulici).
+Non inventare prezzi, SLA o orari di arrivo. Non chiudere un ticket senza conferma del team. Non inviare messaggi verso numeri WhatsApp reali durante uno spike locale.
+Strumento specifico: ServiceOS — Sistema Operativo AI per assistenza tecnica e facility.`,
+
     general: `Sei S.A.R.A., advisor AI di SCALA AI OS — il Sistema Operativo AI per PMI e professionisti italiani.
 Hai una visione d'insieme del business: strategia, operazioni, finanza, team, clienti. Aiuti imprenditori e professionisti a strutturare e far crescere il business con l'AI.
 Conosci i 20 verticali di SCALA (in ordine alfabetico): AdOS (pubblicità/advertising), AgencyOS (agenzie/marketing), BeautyOS (beauty/wellness), CleanOS (imprese pulizia), DermalyOS (dermatologia/estetica), DineOS (ristorazione), FranchiseOS (reti in franchising), LandIQ (costruttori/sviluppatori), ServiceOS (facility management), MotorOS (automotive), NetworkOS (reti commerciali), PraxisOS (studi professionali), ProjectOS (project management), PropertyOS (immobiliare), ReputationOS (reputazione/recensioni), ShopOS (retail/commercio), StudioOS (studi creativi), TenderOS (gare d'appalto), TravelOS (turismo/hotel), WellnessOS (palestre/centri benessere).
@@ -514,6 +519,7 @@ export function detectSector(text: string): string | null {
             'eredità', 'successione', 'divorzio', 'separazione', 'affidamento', 'tutela',
             'marchio', 'brevetto', 'proprietà intellettuale', 'copyright', 'illecito',
             'fascicolo', 'fascicoli', 'parcella', 'onorario', 'mandato professionale',
+            'praxisos', 'praxis',
             'bisogno di una consulenza', 'problema con il condominio', 'controversia condominiale',
             // EN
             'lawyer', 'attorney', 'law firm', 'legal advice', 'lawsuit', 'court',
@@ -603,6 +609,7 @@ export function detectSector(text: string): string | null {
             'bilocale', 'trilocale', 'quadrilocale', 'monolocale', 'attico', 'mansarda',
             'penthouse', 'loft', 'duplex', 'piano terra', 'ultimo piano',
             'metri quadri', 'cerco casa', 'vendo casa', 'compro casa',
+            'propertyos',
             'wohnung', 'apartamento', 'piso', 'inmueble', 'imóvel',
             // EN
             'apartment', 'flat', 'real estate', 'property', 'house for sale', 'rent apartment',
@@ -653,6 +660,7 @@ export function detectSector(text: string): string | null {
             'massaggio estetico', 'trattamento viso', 'pulizia viso', 'make up',
             'laminazione', 'sopracciglia', 'trucco', 'messa in piega',
             'barbiere', 'barber', 'spa estetica', 'centro benessere estetico',
+            'beautyos',
             'haircut', 'corte de pelo', 'corte de cabelo', 'haarschnitt', 'friseur',
         ],
         cleaning: [
@@ -691,6 +699,7 @@ export function detectSector(text: string): string | null {
             'caldaia', 'condizionatore', 'elettricista', 'idraulico', 'installazione',
             'contratto manutenzione', 'contratto assistenza', 'garanzia',
             'field service', 'tecnico', 'intervento', 'rapportino',
+            'serviceos', 'facilityos',
             'serviceeinsatz', 'servicio técnico', 'manutenção',
             'calefacción', 'caldera', 'heating', 'boiler', 'reparación',
             'aquecimento', 'aquecedor',

@@ -204,7 +204,7 @@ const SCALA_VERTICAL_NAMES = [
     'PropertyOS', 'AgencyOS', 'BeautyOS', 'DermalyOS', 'DineOS',
     'MotorOS', 'TravelOS', 'PraxisOS', 'StudioOS', 'CleanOS', 'NetworkOS',
     'WellnessOS', 'ShopOS', 'FranchiseOS', 'ProjectOS', 'ReputationOS',
-    'LandIQ', 'FacilityOS', 'AdOS',
+    'LandIQ', 'FacilityOS', 'ServiceOS', 'AdOS',
 ];
 
 // Canonical SCALA domains. Any other hostname in an http(s) URL = suspect.
@@ -279,6 +279,7 @@ export function strictHallucinationCheck(
             praxisos: ['studio professionale', 'avvocat', 'commercialist', 'notaio', 'consulente', 'legal'],
             studioos: ['architett', 'designer', 'fotograf', 'creativi', 'studio creativo'],
             cleanos: ['pulizi', 'facility', 'sanifica', 'cleaning'],
+            serviceos: ['serviceos', 'manutenz', 'field service', 'ticket', 'assistenza tecnica', 'sopralluogo', 'caldaia', 'facility'],
             networkos: ['mlm', 'network marketing', 'multilevel', 'herbalife', 'distributori'],
         };
         const keywords = topicalMap[lower] || [];

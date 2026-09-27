@@ -4,6 +4,7 @@
 import { pool, BOT_NAME, CTA_URLS } from './config.js';
 import { SECTOR_PROMPTS, PERSONA_INSTRUCTION, detectSector } from './sectors.js';
 import { getVerticalPrompt, ANTI_HALLUCINATION_FOOTER } from './vertical-prompts.js';
+import { effectiveSector, pinnedB2Sector } from './lib/b2-verticals.js';
 import { buildToolContextSnippet, getSectorTools } from './sara-tools.js';
 import { saraToolsToOpenAI, dispatchToolCall, getToolRisk, type ToolContext } from './lib/tool-dispatcher.js';
 import { getConversationHistory } from './db.js';
@@ -655,13 +656,16 @@ function aiInstr(key: string, lang: string, replacements?: Record<string, string
 
 // ─── Text-only AI Response (with conversation history) ───
 export async function getAIResponse(question: string, session: any, phone?: string): Promise<string> {
-    const sector = session?.sector || 'general';
+    // VERTICAL=propertyos|beautyos|praxisos|serviceos pins the brain for a local spike.
+    const sector = effectiveSector(session?.sector);
     const systemPrompt = SECTOR_PROMPTS[sector] || SECTOR_PROMPTS.general;
     const lang = replyLangFor(question, session);
 
     // ─── LAYER 1: Static FAQ (zero LLM calls) ───
-    // Only match FAQ when NOT in a sector-specific conversation
-    const msgSector = detectSector(question);
+    // Only match FAQ when NOT in a sector-specific conversation.
+    // A pinned B2 vertical counts as sector context so generic FAQs do not
+    // override the spike brain.
+    const msgSector = pinnedB2Sector() || detectSector(question);
     const faqResponse = matchFAQ(question, lang, msgSector);
     if (faqResponse) {
         console.log(`[FAQ] static response for "${question.substring(0, 40)}..." lang=${lang}`);
@@ -933,7 +937,8 @@ Emoji: ${agentProfile.emoji_usage || 'minimal'}`;
         console.error('[AI] Error:', err.message);
         // Last-chance fallback to Groq on any unexpected error
         try {
-            const fallbackSystem = `${SECTOR_PROMPTS[session?.sector || 'general'] || SECTOR_PROMPTS.general}\n\n${PERSONA_INSTRUCTION}`;
+            const fallbackSector = effectiveSector(session?.sector);
+            const fallbackSystem = `${SECTOR_PROMPTS[fallbackSector] || SECTOR_PROMPTS.general}\n\n${PERSONA_INSTRUCTION}`;
             const groqText = await callGroq(fallbackSystem, question, 600);
             console.log('[AI] Exception path, served via Groq fallback');
             const finalException = groqText.trim();

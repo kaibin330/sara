@@ -21,6 +21,8 @@ const SECTORS = [
     'praxis', 'immobiliare', 'property', 'studio', 'studioos', 'agenzia', 'marketing',
     'agency', 'general', 'scala_user', 'landiq', 'terreni', 'investimento',
     'costruttore', 'builder',
+    'propertyos', 'beautyos', 'praxisos', 'serviceos', 'service',
+    'clinic', 'clinica', 'clinics', 'facility', 'facilityos', 'manutenzione',
 ];
 
 function testLanguagesAreSymmetric(): void {

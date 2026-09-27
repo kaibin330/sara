@@ -34,6 +34,10 @@ function testKeywordHits(): void {
         ['Lavoro in concessionaria, vendo auto km zero', 'automotive'],
         ['Ho un hotel con 40 camere, gestione booking', 'turismo'],
         ['Ho un agenzia di comunicazione che fa social media', 'agenzia'],
+        ['Vorrei usare PropertyOS per gli annunci', 'immobiliare'],
+        ['Attiva BeautyOS per il salone', 'beauty'],
+        ['Usiamo PraxisOS per lo studio', 'legale'],
+        ['Apri un ticket ServiceOS per la caldaia', 'service'],
     ];
     for (const [text, expected] of cases) {
         const got = detectSector(text);
