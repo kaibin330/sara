@@ -78,6 +78,19 @@ const SECTOR_TO_VERTICAL: Record<string, string> = {
     investimento:   'landiq',
     costruttore:    'landiq',
     builder:        'landiq',
+    // Track B B2 product slugs and legacy ids. ServiceOS tools already
+    // existed; the `service` prompt key is what makes that brain load.
+    propertyos:     'property',
+    beautyos:       'beauty',
+    praxisos:       'praxis',
+    clinic:         'praxis',
+    clinica:        'praxis',
+    clinics:        'praxis',
+    service:        'service',
+    serviceos:      'service',
+    facility:       'service',
+    facilityos:     'service',
+    manutenzione:   'service',
 };
 
 /**

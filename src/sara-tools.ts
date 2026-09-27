@@ -647,6 +647,15 @@ const SECTOR_TO_TOOLS_KEY: Record<string, string> = {
     manutenzione:   'service',
     facilitoos:     'service',
     markasos:       'service',
+    // Track B B2 product slugs (README VERTICAL=propertyos|beautyos|praxisos|serviceos)
+    propertyos:     'property',
+    beautyos:       'beauty',
+    praxisos:       'praxis',
+    clinic:         'praxis',
+    clinica:        'praxis',
+    clinics:        'praxis',
+    serviceos:      'service',
+    facilityos:     'service',
 };
 
 /**

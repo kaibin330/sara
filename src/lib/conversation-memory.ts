@@ -404,6 +404,10 @@ export async function getMemoryContext(phone: string, currentQuestion: string, s
                     automotive: 'motoros', agency: 'agencyos', cleaning: 'cleanos',
                     travel: 'travelos', medical: 'dermalyos', legal: 'praxisos',
                     network: 'networkos', studio: 'studioos',
+                    property: 'propertyos', immobiliare: 'propertyos', propertyos: 'propertyos',
+                    bellezza: 'beautyos', beautyos: 'beautyos',
+                    praxis: 'praxisos', legale: 'praxisos', commercialista: 'praxisos', praxisos: 'praxisos',
+                    service: 'serviceos', facility: 'serviceos', serviceos: 'serviceos', facilityos: 'serviceos',
                 };
                 const vertical = verticalMap[sector] || sector;
                 const globalR = await pool.query(

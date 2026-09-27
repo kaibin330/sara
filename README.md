@@ -137,7 +137,7 @@ Key environment variables (see `.env.example` for the full list):
 | `DATABASE_URL` | Yes | PostgreSQL connection string (pgvector required) |
 | `WAHA_URL` | Yes | WAHA instance URL (default: `http://localhost:3004`) |
 | `WAHA_API_KEY` | Yes | WAHA authentication key |
-| `VERTICAL` | Yes | Active vertical slug (e.g. `dineos`, `propertyos`, `beautyos`) |
+| `VERTICAL` | No | Optional pin for a local spike: `propertyos`, `beautyos`, `praxisos`, `serviceos`. Unset keeps keyword auto-detect. See [TRACK-B-B2.md](TRACK-B-B2.md). |
 | `EMBED_MODEL` | No | Embedding model — must be 1024d. Default: `mxbai-embed-large` |
 | `OLLAMA_BASE_URL` | No | Ollama URL if using local embeddings |
 | `SARA_AUTONOMY_LEVEL` | No | `OFF` / `OBSERVE` / `SEMI_AUTO` / `FULL_AUTO`. Default: `OBSERVE` |
